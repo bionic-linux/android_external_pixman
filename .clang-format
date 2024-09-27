@@ -1,4 +1,3 @@
----
 BasedOnStyle: LLVM
 AlwaysBreakAfterReturnType: TopLevelDefinitions
 BraceWrapping:
@@ -12,4 +11,17 @@ IndentWidth: 4
 BreakBeforeBraces: Allman
 AttributeMacros: ['__attribute__']
 AlignConsecutiveMacros: true
-PenaltyBreakFirstLessLess: 120
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackArguments: true
+BinPackParameters: false
+PenaltyBreakAssignment: 1000
+ReflowComments: false
+SpaceBeforeParens: Always
+SpaceInEmptyBlock: true
+SpacesInContainerLiterals: true
+TabWidth: 8
+UseTab: ForContinuationAndIndentation
