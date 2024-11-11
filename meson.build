@@ -367,7 +367,7 @@ endif
 
 use_mips_msa = get_option('mips-msa')
 have_mips_msa = false
-mips_msa_flags = ['-mmsa', '-mabi=32']
+mips_msa_flags = ['-mmsa']
 if not use_mips_msa.disabled()
   if host_machine.cpu_family().startswith('mips')
     if cc.compiles('''

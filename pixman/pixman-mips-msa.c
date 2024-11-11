@@ -27,7 +27,6 @@
  *    Based on work by Rodrigo Kumpera and André Tupinambá
  */
 
-#include <stdint.h>
 #ifdef HAVE_CONFIG_H
 #include <pixman-config.h>
 #endif
@@ -35,8 +34,6 @@
 #include "pixman-private.h"
 #include "pixman-mips-msa.h"
 #include <msa.h>
-#include <stdint.h>
-#include <string.h>
 
 
 
