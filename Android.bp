@@ -1,0 +1,63 @@
+python_binary_host {
+    name: "pixman_version_gen",
+    main: "pixman_version_gen.py",
+    srcs: ["pixman_version_gen.py"]
+}
+
+genrule {
+    name: "pixman_version_header",
+    out: ["pixman-version.h"],
+    srcs: ["meson.build", "pixman/pixman-version.h.in"],
+    tools: ["pixman_version_gen"],
+    cmd: "$(location pixman_version_gen) $(in) > $(out)",
+}
+
+cc_library {
+    name: "libpixman",
+    cflags: [
+        "-DHAVE_CONFIG_H",
+
+        "-Wno-unused-parameter",
+        "-Wno-missing-field-initializers",
+        "-Wno-unused-local-typedef",
+    ],
+    srcs: [
+        "pixman/pixman.c",
+        "pixman/pixman-access.c",
+        "pixman/pixman-access-accessors.c",
+        "pixman/pixman-arm.c",
+        "pixman/pixman-bits-image.c",
+        "pixman/pixman-combine32.c",
+        "pixman/pixman-combine-float.c",
+        "pixman/pixman-conical-gradient.c",
+        "pixman/pixman-edge.c",
+        "pixman/pixman-edge-accessors.c",
+        "pixman/pixman-fast-path.c",
+        "pixman/pixman-filter.c",
+        "pixman/pixman-glyph.c",
+        "pixman/pixman-general.c",
+        "pixman/pixman-gradient-walker.c",
+        "pixman/pixman-image.c",
+        "pixman/pixman-implementation.c",
+        "pixman/pixman-linear-gradient.c",
+        "pixman/pixman-matrix.c",
+        "pixman/pixman-mips.c",
+        "pixman/pixman-noop.c",
+        "pixman/pixman-ppc.c",
+        "pixman/pixman-radial-gradient.c",
+        "pixman/pixman-region16.c",
+        "pixman/pixman-region32.c",
+        "pixman/pixman-riscv.c",
+        "pixman/pixman-solid-fill.c",
+        "pixman/pixman-timer.c",
+        "pixman/pixman-trap.c",
+        "pixman/pixman-utils.c",
+        "pixman/pixman-x86.c"
+    ],
+    shared_libs: [
+        "libpng"
+    ],
+    generated_headers: ["pixman_version_header"],
+    export_include_dirs: ["pixman"],
+    local_include_dirs: ["config"],
+}
