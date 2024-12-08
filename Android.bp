@@ -18,8 +18,9 @@ cc_library {
         "-DHAVE_CONFIG_H",
 
         "-Wno-unused-parameter",
-        "-Wno-missing-field-initializers",
         "-Wno-unused-local-typedef",
+        "-Wno-unknown-attributes",
+        "-Wno-missing-field-initializers",
     ],
     srcs: [
         "pixman/pixman.c",
