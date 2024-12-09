@@ -15,7 +15,9 @@ genrule {
 cc_library {
     name: "libpixman",
     cflags: [
-        "-DHAVE_CONFIG_H",
+        "-DPACKAGE",
+        "-DHAVE_PTHREADS",
+        "-DHAVE_LIBPNG",
 
         "-Wno-unused-parameter",
         "-Wno-unused-local-typedef",
@@ -60,5 +62,4 @@ cc_library {
     ],
     generated_headers: ["pixman_version_header"],
     export_include_dirs: ["pixman"],
-    local_include_dirs: ["config"],
 }
